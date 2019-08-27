@@ -1,18 +1,22 @@
-import React, { useState } from "react";
-import { operators } from "../../../data";
-import OperatorButton from "../OperatorButtons/OperatorButton";
+import React from "react";
+import OperatorButton from './OperatorButton.js'
+import { operators } from '../../../data.js'
 
-const Operators = ({ setDisplay, display }) => {
+//importing all the necessary components up here.
 
-  const [setOperators] = useState(operators)
+const Operators = (props) => {
+  // STEP 2 - add the imported data to state
+  // const [operatorState, setOperatorState] = useState(operators);
 
   return (
-    <div className='operators-container'>
-       {setOperators.map((operator, index) => {
-          return <OperatorButton key={ index } symbol={ operator.char } value={ operator.value } setDisplay={setDisplay} display={display} />
-       })}
+    <div className = 'operator-container'>
+      
+      {operators.map(operator => <OperatorButton operator = {operator} 
+                                                 key={operator.char} 
+                                                 addOperator = {props.addOperator}/>)}
+
     </div>
   );
 };
 
-export default Operators;
+export default Operators

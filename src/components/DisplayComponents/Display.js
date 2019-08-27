@@ -1,9 +1,11 @@
 import React from "react";
 
-const Display = ({ total }) => {
+const Display = (props) => {
+  console.log("Display", props, props.number)
   return <div className="display">
-  <div className='displayDigit'>{ total }</div>
-  </div>;
+    {/* Display any props data here */}
+    {props.number}
+    </div>;
 };
 
 export default Display;
